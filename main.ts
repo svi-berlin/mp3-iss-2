@@ -1,29 +1,35 @@
 input.onButtonPressed(Button.A, function () {
-    if (sound < 11) {
-        sound += 1
-        serialmp3.runMp3Command(Mp3Command.PLAY_NEXT_TRACK)
+    if (ordner != 3) {
+        if (sound < 11) {
+            sound += 1
+            serialmp3.runMp3Command(Mp3Command.PLAY_NEXT_TRACK)
+        } else {
+            sound = 1
+            ordner += 1
+            serialmp3.playMp3Track(sound, ordner)
+        }
     } else {
-        sound = 1
-        ordner += 1
-        serialmp3.playMp3Track(sound, ordner)
+        pins.servoWritePin(AnalogPin.P1, 180)
     }
 })
 input.onButtonPressed(Button.AB, function () {
     if (ordner == 3) {
         serialmp3.runMp3Command(Mp3Command.PLAY_NEXT_TRACK)
-        pins.servoWritePin(AnalogPin.P1, 180)
-        pins.servoWritePin(AnalogPin.P1, 0)
-        pins.servoWritePin(AnalogPin.P1, 90)
+        pins.servoWritePin(AnalogPin.P1, 64)
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (sound < 11) {
-        sound += 1
-        serialmp3.runMp3Command(Mp3Command.PLAY_NEXT_TRACK)
+    if (ordner != 3) {
+        if (sound < 11) {
+            sound += 1
+            serialmp3.runMp3Command(Mp3Command.PLAY_NEXT_TRACK)
+        } else {
+            sound = 1
+            ordner += 1
+            serialmp3.playMp3Track(sound, ordner)
+        }
     } else {
-        sound = 1
-        ordner += 1
-        serialmp3.playMp3Track(sound, ordner)
+        pins.servoWritePin(AnalogPin.P1, 0)
     }
 })
 let ordner = 0
