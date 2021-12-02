@@ -1,8 +1,12 @@
 function starteQuiz () {
+    pins.servoWritePin(AnalogPin.P1, 170)
     quizGestartet = 1
     serialmp3.playMp3TrackFromFolder(frage, quiz, Mp3Repeat.No)
 }
 input.onButtonPressed(Button.A, function () {
+    pins.servoWritePin(AnalogPin.P1, 10)
+    basic.pause(2000)
+    pins.servoWritePin(AnalogPin.P1, 170)
     if (quizGestartet == 0) {
         sprecheIntro()
     } else {
@@ -30,6 +34,7 @@ input.onButtonPressed(Button.B, function () {
 let frage = 0
 let quiz = 0
 let quizGestartet = 0
+pins.servoWritePin(AnalogPin.P1, 90)
 quizGestartet = 0
 quiz = 2
 frage = 1
@@ -38,3 +43,10 @@ basic.setLedColor(0x007fff)
 serialmp3.setMp3Volume(30)
 serialmp3.playMp3Folder(1, Mp3Repeat.No)
 basic.showIcon(IconNames.Heart)
+pins.servoWritePin(AnalogPin.P1, 20)
+basic.pause(2000)
+pins.servoWritePin(AnalogPin.P1, 90)
+basic.pause(2000)
+pins.servoWritePin(AnalogPin.P1, 170)
+basic.pause(2000)
+pins.servoWritePin(AnalogPin.P1, 32)
