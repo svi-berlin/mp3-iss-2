@@ -10,7 +10,6 @@ radio.onReceivedNumber(function (receivedNumber) {
     basic.pause(2000)
     pins.servoWritePin(AnalogPin.P1, 170)
     basic.pause(2000)
-    serialmp3.playMp3TrackFromFolder(receivedNumber, 3, Mp3Repeat.No)
 })
 input.onButtonPressed(Button.A, function () {
     pins.servoWritePin(AnalogPin.P1, 10)
