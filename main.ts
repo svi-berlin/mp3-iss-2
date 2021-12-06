@@ -5,6 +5,13 @@ function starteQuiz () {
 }
 radio.onReceivedNumber(function (receivedNumber) {
     basic.showNumber(receivedNumber)
+    if (receivedNumber == 1) {
+        serialmp3.playMp3TrackFromFolder(1, 4, Mp3Repeat.No)
+    } else {
+        if (receivedNumber == 2) {
+            serialmp3.playMp3TrackFromFolder(2, 4, Mp3Repeat.No)
+        }
+    }
     basic.setLedColor(0xffff00)
     pins.servoWritePin(AnalogPin.P1, 20)
     basic.pause(2000)
@@ -50,7 +57,7 @@ quiz = 2
 frage = 1
 serialmp3.connectSerialMp3(DigitalPin.C16, DigitalPin.C17)
 basic.setLedColor(0x007fff)
-serialmp3.setMp3Volume(10)
+serialmp3.setMp3Volume(20)
 basic.showIcon(IconNames.Heart)
 pins.servoWritePin(AnalogPin.P1, 20)
 basic.pause(2000)
