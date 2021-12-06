@@ -4,6 +4,8 @@ function starteQuiz () {
     serialmp3.playMp3TrackFromFolder(frage, quiz, Mp3Repeat.No)
 }
 radio.onReceivedNumber(function (receivedNumber) {
+    basic.showNumber(receivedNumber)
+    basic.setLedColor(0xffff00)
     pins.servoWritePin(AnalogPin.P1, 20)
     basic.pause(2000)
     pins.servoWritePin(AnalogPin.P1, 170)
